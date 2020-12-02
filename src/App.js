@@ -5,29 +5,12 @@ import './App.css';
 
 const App = () => {
 	const [foodData, setFoodData] = useState([]);
-	const [randomArr, setRandomArr] = useState([]);
+	const [restaurantArr, setRestaurantArr] = useState([]);
 	const [chickenDinner, setChickenDinner] = useState('');
-	// const [isSelected, changeIsSelected] = useState(false);
-	// const [selectedArr, setSelectedArr] = useState([]);
-
-	// for (let i = 0; i < selectedArr.length; i++) {
-	// 	if (selectedArr[i] !== props.restaurant) {
-	// 		setSelectedArr(selectedArr.push(props.restaurant));
-	// 	} else if (selectedArr[i] === props.restaurant) {
-	// 		setSelectedArr(selectedArr.splice(i, 1));
-	// 	}
-	// }
-	// };
-
-	// const selectRestaurant = (item) => {
-	// 	setRandomArr(...randomArr, item.name);
-	// 	console.log(randomArr);
-	// };
 
 	// Loads in json restaurant data
 	const loadData = () => {
 		const restaurantJson = JSON.parse(JSON.stringify(jsonData));
-		// console.log(restaurantJson.restaurants);
 		setFoodData(restaurantJson.restaurants);
 	};
 
@@ -37,10 +20,10 @@ const App = () => {
 		return restaurantArr;
 	};
 
-	// Selects dinner from randomArr
+	// Selects dinner from restaurantArr
 	const selectDinner = () => {
 		const winnerWinner =
-			randomArr[Math.floor(Math.random() * randomArr.length)];
+			restaurantArr[Math.floor(Math.random() * restaurantArr.length)];
 		console.log(winnerWinner);
 		setChickenDinner(winnerWinner);
 	};
@@ -65,7 +48,7 @@ const App = () => {
 
 			<div className='selected-list'>
 				<h6>Your food options to be selected from:</h6>
-				<p> {printRestaurantArr(randomArr)}</p>
+				<p> {printRestaurantArr(restaurantArr)}</p>
 			</div>
 			<div className='card-container'>
 				<div className='row'>
@@ -77,12 +60,8 @@ const App = () => {
 									name={item.name}
 									city={item.city}
 									cuisine={item.cuisine}
-									randomArr={randomArr}
-									setRandomArr={setRandomArr}
-									// onClick={(item) => {
-									// 	setRandomArr(...randomArr, item.name);
-									// 	console.log(randomArr);
-									// }}
+									restaurantArr={restaurantArr}
+									setRestaurantArr={setRestaurantArr}
 								/>
 							</div>
 						);
