@@ -7,6 +7,22 @@ const App = () => {
 	const [foodData, setFoodData] = useState([]);
 	const [randomArr, setRandomArr] = useState([]);
 	const [chickenDinner, setChickenDinner] = useState('');
+	// const [isSelected, changeIsSelected] = useState(false);
+	// const [selectedArr, setSelectedArr] = useState([]);
+
+	// for (let i = 0; i < selectedArr.length; i++) {
+	// 	if (selectedArr[i] !== props.restaurant) {
+	// 		setSelectedArr(selectedArr.push(props.restaurant));
+	// 	} else if (selectedArr[i] === props.restaurant) {
+	// 		setSelectedArr(selectedArr.splice(i, 1));
+	// 	}
+	// }
+	// };
+
+	// const selectRestaurant = (item) => {
+	// 	setRandomArr(...randomArr, item.name);
+	// 	console.log(randomArr);
+	// };
 
 	// Loads in json restaurant data
 	const loadData = () => {
@@ -15,19 +31,18 @@ const App = () => {
 		setFoodData(restaurantJson.restaurants);
 	};
 
-	// Adds selected restaurants to list
-	const printRandomArr = (arr) => {
-		for (let i = 0; i < arr.length; i++) {
-			return arr[i] + ', ';
-		}
+	// Displays selected restaurants on screen
+	const printRestaurantArr = (arr) => {
+		const restaurantArr = arr.join(', ');
+		return restaurantArr;
 	};
 
-	// Selects dinner
+	// Selects dinner from randomArr
 	const selectDinner = () => {
 		const winnerWinner =
 			randomArr[Math.floor(Math.random() * randomArr.length)];
-		console.log(winnerWinner.toString());
-		// setChickenDinner(winnerWinner);
+		console.log(winnerWinner);
+		setChickenDinner(winnerWinner);
 	};
 
 	useEffect(() => {
@@ -50,18 +65,24 @@ const App = () => {
 
 			<div className='selected-list'>
 				<h6>Your food options to be selected from:</h6>
-				{/* <p>{printRandomArr(randomArr)}</p> */}
+				<p> {printRestaurantArr(randomArr)}</p>
 			</div>
 			<div className='card-container'>
 				<div className='row'>
 					{foodData.map((item) => {
 						return (
-							<div className='col-sm-3'>
+							<div className='col-sm-3' key={item.id}>
 								<Card
 									key={item.id}
-									restaurant={item.name}
+									name={item.name}
 									city={item.city}
 									cuisine={item.cuisine}
+									randomArr={randomArr}
+									setRandomArr={setRandomArr}
+									// onClick={(item) => {
+									// 	setRandomArr(...randomArr, item.name);
+									// 	console.log(randomArr);
+									// }}
 								/>
 							</div>
 						);

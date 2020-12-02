@@ -1,3 +1,13 @@
 .card-container {
+	margin-top: 25px;
 	padding: 0 25px;
+}
+
+.selected-list {
+	padding: 0 25px;
+}
+
+.selected-list h6,
+.selected-list p {
+	display: inline;
 }
