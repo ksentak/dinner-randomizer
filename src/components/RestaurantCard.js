@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Card, CardContent } from '@material-ui/core';
+import { Button, Card, CardContent, Paper } from '@material-ui/core';
 import './RestaurantCard.css';
 
 const RestaurantCard = (props) => {
@@ -19,36 +19,34 @@ const RestaurantCard = (props) => {
 
 	return (
 		<div className='card-component'>
-			<Card variant='outlined'>
-				<CardContent>
-					<h3 className='card-title'>{name}</h3>
-					<div className='card-text'>
-						<p className='city mb-0'>City: {city}</p>
-						<p className='cuisine'>Cuisine: {cuisine}</p>
-						{isSelected ? (
-							<Button
-								className='btn-remove'
-								color='secondary'
-								variant='contained'
-								onClick={removeRestaurant}
-							>
-								Remove from list
-							</Button>
-						) : (
-							<Button
-								className='btn-add'
-								color='primary'
-								variant='contained'
-								onClick={addRestaurant}
-							>
-								Add to list
-							</Button>
-						)}
-					</div>
-					{/* </div> */}
-				</CardContent>
-			</Card>
-			{/* </div> */}
+			<Paper elevation={1}>
+				<Card variant='outlined'>
+					<CardContent>
+						<h3 className='card-title'>{name}</h3>
+						<div className='card-text'>
+							<p className='city mb-0'>City: {city}</p>
+							<p className='cuisine'>Cuisine: {cuisine}</p>
+							{isSelected ? (
+								<Button
+									className='btn-remove'
+									variant='contained'
+									onClick={removeRestaurant}
+								>
+									Remove from list
+								</Button>
+							) : (
+								<Button
+									className='btn-add'
+									variant='contained'
+									onClick={addRestaurant}
+								>
+									Add to list
+								</Button>
+							)}
+						</div>
+					</CardContent>
+				</Card>
+			</Paper>
 		</div>
 	);
 };

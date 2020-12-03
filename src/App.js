@@ -5,6 +5,7 @@ import { Backdrop, Button, CircularProgress, Grid } from '@material-ui/core';
 import './App.css';
 
 const App = () => {
+	// Set initial state
 	const [foodData, setFoodData] = useState([]);
 	const [restaurantArr, setRestaurantArr] = useState([]);
 	const [chickenDinner, setChickenDinner] = useState('');
@@ -26,7 +27,7 @@ const App = () => {
 	const selectDinner = async () => {
 		await setOpen(true);
 		try {
-			setTimeout(() => setOpen(false), 1500);
+			setTimeout(() => setOpen(false), 500);
 		} catch (err) {
 			console.log(err);
 		} finally {
@@ -35,10 +36,11 @@ const App = () => {
 					restaurantArr[Math.floor(Math.random() * restaurantArr.length)];
 				console.log(winnerWinner);
 				setChickenDinner(winnerWinner);
-			}, 2000);
+			}, 1000);
 		}
 	};
 
+	// Loads in data on page render
 	useEffect(() => {
 		loadData();
 	}, []);
@@ -47,19 +49,18 @@ const App = () => {
 		<div className='App'>
 			<div className='main'>
 				<h1>Dinner Randomizer</h1>
-				<h4>
+				<p>
 					Select restaurannts you are interested in, and this app will
 					automatically decide where you should eat
-				</h4>
+				</p>
 				<Button
 					className='btn-randomize'
-					color='primary'
 					variant='contained'
 					onClick={selectDinner}
 				>
 					Randomize
 				</Button>
-				<p>{chickenDinner}</p>
+				<h3 className='dinner-selection'>{chickenDinner}</h3>
 				<Backdrop open={open}>
 					<CircularProgress color='white' />
 				</Backdrop>

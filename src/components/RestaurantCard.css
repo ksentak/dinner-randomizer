@@ -6,3 +6,21 @@
 .MuiCardContent-root {
 	padding: 20px;
 }
+
+.MuiButtonBase-root.MuiButton-root.btn-add {
+	background-color: #2196f3;
+	color: white;
+}
+
+.MuiButtonBase-root.MuiButton-root.btn-add:hover {
+	background-color: #1976d2;
+}
+
+.MuiButtonBase-root.MuiButton-root.btn-remove {
+	background-color: #dc004e;
+	color: white;
+}
+
+.MuiButtonBase-root.MuiButton-root.btn-remove:hover {
+	background-color: #9a0036;
+}
