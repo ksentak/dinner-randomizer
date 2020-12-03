@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import './Card.css';
+import { Button, Card, CardContent } from '@material-ui/core';
+import './RestaurantCard.css';
 
-const Card = (props) => {
+const RestaurantCard = (props) => {
 	const [isSelected, changeIsSelected] = useState(false);
 	const { restaurantArr, setRestaurantArr, name, city, cuisine } = props;
 
@@ -18,26 +19,38 @@ const Card = (props) => {
 
 	return (
 		<div className='card-component'>
-			<div className='card'>
-				<div className='card-body'>
+			<Card variant='outlined'>
+				<CardContent>
 					<h3 className='card-title'>{name}</h3>
 					<div className='card-text'>
 						<p className='city mb-0'>City: {city}</p>
 						<p className='cuisine'>Cuisine: {cuisine}</p>
 						{isSelected ? (
-							<button className='btn btn-danger' onClick={removeRestaurant}>
+							<Button
+								className='btn-remove'
+								color='secondary'
+								variant='contained'
+								onClick={removeRestaurant}
+							>
 								Remove from list
-							</button>
+							</Button>
 						) : (
-							<button className='btn btn-primary' onClick={addRestaurant}>
+							<Button
+								className='btn-add'
+								color='primary'
+								variant='contained'
+								onClick={addRestaurant}
+							>
 								Add to list
-							</button>
+							</Button>
 						)}
 					</div>
-				</div>
-			</div>
+					{/* </div> */}
+				</CardContent>
+			</Card>
+			{/* </div> */}
 		</div>
 	);
 };
 
-export default Card;
+export default RestaurantCard;

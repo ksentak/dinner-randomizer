@@ -1,8 +1,8 @@
-.card {
+.MuiCard-root {
 	margin: 10px 0;
 	height: 225px;
 }
 
-.card-body {
+.MuiCardContent-root {
 	padding: 20px;
 }

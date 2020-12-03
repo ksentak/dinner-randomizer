@@ -1,13 +1,23 @@
-.card-container {
-	margin-top: 25px;
+.main {
+	text-align: center;
+	padding: 20px;
+	margin-bottom: 30px;
+}
+
+.MuiBackdrop-root {
+	z-index: 2 !important;
+	color: #fff;
+}
+
+.MuiGrid-container {
 	padding: 0 25px;
 }
 
 .selected-list {
 	padding: 0 25px;
+	margin-bottom: 25px;
 }
 
-.selected-list h6,
 .selected-list p {
 	display: inline;
 }
